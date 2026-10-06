@@ -11,20 +11,33 @@ body:before,body:after{content:"";position:fixed;width:280px;height:280px;border
 body:before{background:#00d9a6;top:-90px;left:-100px}body:after{background:#1684ff;right:-110px;bottom:-80px;animation-delay:-4s}
 @keyframes float{50%{transform:translate(30px,25px) scale(1.12)}}@keyframes up{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
 .wrap{width:min(760px,100%);margin:auto;padding:18px 14px 32px}.glass{background:linear-gradient(135deg,#ffffff13,#ffffff08);border:1px solid #ffffff1c;box-shadow:0 18px 50px #0005,inset 0 1px #ffffff12;backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border-radius:24px}
-.hero{padding:25px 20px;margin-bottom:14px;animation:up .55s ease}.badge{display:inline-flex;padding:7px 11px;border-radius:99px;background:#00d9a61c;border:1px solid #00d9a64a;color:#72ffd9;font-size:12px;font-weight:700}
+.hero{padding:25px 20px;margin-bottom:14px;animation:up .55s ease}.badge{display:inline-flex;padding:7px 11px;border-radius:99px;background:#00d9a61c;border:1px solid #00d9a64a;color:#72ffd9;font-size:12px;font-weight:700}.brand-logo{display:block;width:min(230px,100%);height:auto;margin:0 0 14px auto;border-radius:8px;background:#fff}
 h1{font-size:clamp(27px,8vw,42px);line-height:1.03;margin:13px 0 8px;letter-spacing:-1.5px}.hero p{margin:0;color:#a8bac7;line-height:1.5}.solar{font-size:46px;float:right;filter:drop-shadow(0 0 18px #ffe06b)}
 .section{padding:17px;margin-bottom:14px;animation:up .6s ease}.section h2{font-size:17px;margin:0 0 12px}.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 label{display:block;color:#9fb2bf;font-size:12px;font-weight:600}input{margin-top:6px;width:100%;padding:12px 11px;border-radius:13px;border:1px solid #ffffff1c;background:#071521;color:white;outline:none;font-size:15px}input:focus{border-color:#00d9a6;box-shadow:0 0 0 3px #00d9a615}
 .appliance{display:grid;grid-template-columns:1.35fr .7fr .55fr .7fr 40px;gap:7px;align-items:end;padding:10px 0;border-bottom:1px solid #ffffff0d}.appliance:last-child{border:0}
 .small{font-size:10px;color:#718594}.btn{border:0;border-radius:13px;padding:12px 14px;font-weight:800;cursor:pointer;color:#041016;transition:.2s}.btn:hover{transform:translateY(-2px)}.add{background:#65f6cf;margin-top:12px;width:100%}.remove{background:#ff61701a;color:#ff8994;border:1px solid #ff61702b;height:43px}
 .results{display:grid;grid-template-columns:1fr 1fr;gap:9px}.metric{padding:14px;border-radius:17px;background:#ffffff09;border:1px solid #ffffff12}.metric span{display:block;color:#91a7b5;font-size:11px}.metric b{display:block;margin-top:5px;font-size:23px}.recommend{margin-top:11px;padding:16px;border-radius:18px;background:linear-gradient(135deg,#00d9a61b,#1684ff15);border:1px solid #00d9a638}.recommend strong{color:#74ffda}.footer{text-align:center;color:#8296a3;font-size:12px;padding:8px}.footer b{color:#d7e9f3}
-@media(max-width:560px){.grid,.results{grid-template-columns:1fr 1fr}.appliance{grid-template-columns:1fr 1fr 1fr}.appliance .name{grid-column:1/-1}.appliance .remove{grid-column:3}.solar{font-size:38px}.hero{padding:22px 17px}}
+.save-row{display:grid;grid-template-columns:1fr auto;gap:9px;align-items:end}.save-button{background:#65f6cf;white-space:nowrap}.saved-list{display:grid;gap:8px;margin-top:14px}.saved-item{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:12px;border:1px solid #ffffff12;border-radius:14px;background:#ffffff08}.saved-info{min-width:0}.saved-info strong,.saved-info span{display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.saved-info span{margin-top:4px;color:#91a7b5;font-size:11px}.saved-actions{display:flex;gap:6px;flex-shrink:0}.saved-actions .btn{padding:9px 11px}.load-button{background:#1684ff24;color:#a9ceff;border:1px solid #1684ff40}.empty-saved,.save-status{color:#91a7b5;font-size:12px;margin:10px 0 0}.save-status{min-height:16px;color:#74ffda}
+@media(max-width:560px){.grid,.results{grid-template-columns:1fr 1fr}.appliance{grid-template-columns:1fr 1fr 1fr}.appliance .name{grid-column:1/-1}.appliance .remove{grid-column:3}.brand-logo{width:min(205px,100%)}.hero{padding:22px 17px}}
+@media(max-width:420px){.save-row{grid-template-columns:1fr}.save-button{width:100%}.saved-item{align-items:flex-start;flex-direction:column}.saved-actions{width:100%}.saved-actions .btn{flex:1}}
 </style>
 </head>
 <body>
 <div class="wrap">
 <header class="glass hero">
-  <div class="solar">☀️</div>
+  <svg class="brand-logo" viewBox="0 0 254 112" role="img" aria-label="Hiru Jaya Green Energy, Pure Power">
+    <rect width="254" height="112" fill="#fff"/>
+    <rect x="0" y="16" width="35" height="78" fill="#249b43"/>
+    <rect x="40" y="16" width="35" height="78" fill="#55b947"/>
+    <path d="M16 31h19v16H0V31h8V16h8zm0 32h19v15H16v16H0V63zM40 47h19V31h16v32H40zm0 16h35v31H59V78H40z" fill="#fff"/>
+    <g fill="#292c83" font-family="Arial,Helvetica,sans-serif" font-weight="700">
+      <text x="91" y="39" font-size="31" textLength="153" lengthAdjust="spacingAndGlyphs">HIRUJAYA</text>
+      <text x="91" y="65" font-size="28">GREEN</text>
+      <text x="91" y="91" font-size="28">ENERGY</text>
+    </g>
+    <text x="91" y="108" fill="#008dde" font-family="Arial,Helvetica,sans-serif" font-size="14">PURE POWER</text>
+  </svg>
   <span class="badge">OFF-GRID SOLAR CALCULATOR</span>
   <h1>Power your home.<br>Know your solar size.</h1>
   <p>Add your home appliances and daily usage hours. Get an instant estimated solar, battery and inverter requirement.</p>
@@ -50,6 +63,16 @@ label{display:block;color:#9fb2bf;font-size:12px;font-weight:600}input{margin-to
 <div class="recommend" id="recommend"></div>
 </section>
 
+<section class="glass section">
+<h2>💾 Save customer estimate</h2>
+<div class="save-row">
+<label>Customer name<input id="customerName" type="text" maxlength="80" placeholder="Enter customer name"></label>
+<button class="btn save-button" id="saveButton" type="button">Save estimate</button>
+</div>
+<p class="save-status" id="saveStatus" role="status" aria-live="polite"></p>
+<div class="saved-list" id="savedList"></div>
+</section>
+
 <div class="footer">Designed for <b>S A Chamika Gayashan</b> · 0740222175</div>
 </div>
 
@@ -59,12 +82,58 @@ const presets=[
 ];
 function add(v=["Appliance",100,1,1]){
  let d=document.createElement("div");d.className="appliance";
- d.innerHTML=`<label class="name">Appliance<input class="n" value="${v[0]}"></label>
- <label>Watts<input class="w" type="number" min="0" value="${v[1]}" oninput="calculate()"></label>
- <label>Qty<input class="q" type="number" min="1" value="${v[2]}" oninput="calculate()"></label>
- <label>Hours/day<input class="h" type="number" min="0" max="24" step=".1" value="${v[3]}" oninput="calculate()"></label>
+ d.innerHTML=`<label class="name">Appliance<input class="n"></label>
+ <label>Watts<input class="w" type="number" min="0" oninput="calculate()"></label>
+ <label>Qty<input class="q" type="number" min="1" oninput="calculate()"></label>
+ <label>Hours/day<input class="h" type="number" min="0" max="24" step=".1" oninput="calculate()"></label>
  <button class="btn remove" onclick="this.parentElement.remove();calculate()">×</button>`;
+ d.querySelector(".n").value=v[0];d.querySelector(".w").value=v[1];d.querySelector(".q").value=v[2];d.querySelector(".h").value=v[3];
  document.getElementById("list").appendChild(d);calculate();
+}
+const savedEstimatesKey="solarHomeCalculator.estimates";
+function getSavedEstimates(){
+ try{return JSON.parse(localStorage.getItem(savedEstimatesKey)||"[]")}catch{return []}
+}
+function renderSavedEstimates(){
+ let list=document.getElementById("savedList");list.replaceChildren();
+ let estimates=getSavedEstimates();
+ if(!estimates.length){let empty=document.createElement("p");empty.className="empty-saved";empty.textContent="No saved estimates yet.";list.appendChild(empty);return}
+ estimates.forEach(estimate=>{
+  let item=document.createElement("div");item.className="saved-item";
+  let info=document.createElement("div");info.className="saved-info";
+  let name=document.createElement("strong");name.textContent=estimate.customerName;
+  let details=document.createElement("span");details.textContent=`${new Date(estimate.createdAt).toLocaleString()} · ${estimate.dailyEnergy.toFixed(2)} kWh/day`;
+  info.append(name,details);
+  let actions=document.createElement("div");actions.className="saved-actions";
+  let load=document.createElement("button");load.className="btn load-button";load.type="button";load.textContent="Load";load.addEventListener("click",()=>loadEstimate(estimate.id));
+  let remove=document.createElement("button");remove.className="btn remove";remove.type="button";remove.textContent="Delete";remove.setAttribute("aria-label",`Delete estimate for ${estimate.customerName}`);remove.addEventListener("click",()=>deleteEstimate(estimate.id));
+  actions.append(load,remove);item.append(info,actions);list.appendChild(item);
+ });
+}
+function saveEstimate(){
+ let customerName=document.getElementById("customerName").value.trim();
+ let status=document.getElementById("saveStatus");
+ if(!customerName){status.textContent="Enter a customer name before saving.";document.getElementById("customerName").focus();return}
+ let appliances=Array.from(document.querySelectorAll(".appliance"),row=>[
+  row.querySelector(".n").value,row.querySelector(".w").value,row.querySelector(".q").value,row.querySelector(".h").value
+ ]);
+ let dailyEnergy=Array.from(document.querySelectorAll(".appliance")).reduce((total,row)=>total+(+row.querySelector(".w").value||0)*(+row.querySelector(".q").value||0)*(+row.querySelector(".h").value||0)/1000,0);
+ let estimates=getSavedEstimates();
+ estimates.unshift({id:`${Date.now()}-${Math.random().toString(36).slice(2)}`,customerName,createdAt:new Date().toISOString(),appliances,sun:document.getElementById("sun").value,eff:document.getElementById("eff").value,dailyEnergy});
+ try{localStorage.setItem(savedEstimatesKey,JSON.stringify(estimates));renderSavedEstimates();status.textContent=`Estimate saved for ${customerName}.`;}
+ catch{status.textContent="Could not save. Check browser storage settings.";}
+}
+function loadEstimate(id){
+ let estimate=getSavedEstimates().find(item=>item.id===id);if(!estimate)return;
+ document.getElementById("customerName").value=estimate.customerName;
+ document.getElementById("sun").value=estimate.sun;document.getElementById("eff").value=estimate.eff;
+ document.getElementById("list").replaceChildren();estimate.appliances.forEach(add);calculate();
+ document.getElementById("saveStatus").textContent=`Loaded estimate for ${estimate.customerName}.`;
+}
+function deleteEstimate(id){
+ let estimates=getSavedEstimates().filter(item=>item.id!==id);
+ try{localStorage.setItem(savedEstimatesKey,JSON.stringify(estimates));renderSavedEstimates();document.getElementById("saveStatus").textContent="Saved estimate deleted.";}
+ catch{document.getElementById("saveStatus").textContent="Could not update browser storage.";}
 }
 function calculate(){
  let kwh=0,peak=0;
@@ -87,6 +156,8 @@ function calculate(){
  <span class="small">Panel count shown is an estimate. Final design should account for surge loads, battery limits and local solar conditions.</span>`;
 }
 presets.forEach(add);
+document.getElementById("saveButton").addEventListener("click",saveEstimate);
+renderSavedEstimates();
 </script>
 </body>
 </html>
