@@ -1,4 +1,4 @@
-<!doctype html>
+
 <html lang="en">
 <head>
 <meta charset="utf-8">
@@ -6,12 +6,15 @@
 <meta name="theme-color" content="#07131f">
 <title>Solar Home Calculator — S A Chamika Gayashan</title>
 <style>
-*{box-sizing:border-box}body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,sans-serif;color:#eef8ff;background:#06111c;min-height:100vh;overflow-x:hidden}
-body:before,body:after{content:"";position:fixed;width:280px;height:280px;border-radius:50%;filter:blur(70px);opacity:.28;z-index:-1;animation:float 9s ease-in-out infinite}
-body:before{background:#00d9a6;top:-90px;left:-100px}body:after{background:#1684ff;right:-110px;bottom:-80px;animation-delay:-4s}
-@keyframes float{50%{transform:translate(30px,25px) scale(1.12)}}@keyframes up{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
-.wrap{width:min(760px,100%);margin:auto;padding:18px 14px 32px}.glass{background:linear-gradient(135deg,#ffffff13,#ffffff08);border:1px solid #ffffff1c;box-shadow:0 18px 50px #0005,inset 0 1px #ffffff12;backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border-radius:24px}
-.hero{padding:25px 20px;margin-bottom:14px;animation:up .55s ease}.badge{display:inline-flex;padding:7px 11px;border-radius:99px;background:#00d9a61c;border:1px solid #00d9a64a;color:#72ffd9;font-size:12px;font-weight:700}.brand-logo{display:block;width:min(230px,100%);height:auto;margin:0 0 14px auto;border-radius:8px;background:#fff}
+*{box-sizing:border-box}body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,sans-serif;color:#eef8ff;background:radial-gradient(ellipse at 76% 14%,#f4b95b25,transparent 21%),linear-gradient(160deg,#061720,#07131f 55%,#091d25);min-height:100vh;overflow-x:hidden;isolation:isolate}
+body:before{content:"";position:fixed;z-index:0;pointer-events:none;width:140vw;height:44vh;min-height:230px;left:-20vw;bottom:-15vh;transform:perspective(850px) rotateX(34deg) rotateZ(-6deg);transform-origin:center bottom;border:1px solid #67d7e333;background:linear-gradient(150deg,#123b4acc,#071722ee),repeating-linear-gradient(90deg,transparent 0 calc(12.5% - 1px),#70d3e242 calc(12.5% - 1px) 12.5%),repeating-linear-gradient(0deg,transparent 0 calc(25% - 1px),#70d3e242 calc(25% - 1px) 25%);box-shadow:0 -20px 70px #64c9ec19;opacity:.52}
+body:after{content:"";position:fixed;z-index:0;pointer-events:none;width:clamp(110px,16vw,210px);aspect-ratio:1;right:10vw;top:8vh;border-radius:50%;background:radial-gradient(circle at 38% 36%,#fff1bf 0 5%,#ffd37c 19%,#f5a542aa 44%,#f5a54200 72%);filter:blur(1px);box-shadow:0 0 75px 24px #f8b94b20;opacity:.82}
+@keyframes up{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}@keyframes glint{50%{filter:brightness(1.18)}}
+.scene-canvas{position:fixed;inset:0;z-index:1;width:100%;height:100%;display:block;pointer-events:none}
+body.scene-ready:before,body.scene-ready:after{opacity:0;transition:opacity 1.2s ease}
+.wrap{position:relative;z-index:2;width:min(760px,100%);margin:auto;padding:18px 14px 32px}.glass{background:linear-gradient(145deg,rgba(22,46,54,.72),rgba(7,19,30,.56));border:1px solid #d8f5f333;box-shadow:0 18px 50px #0006,inset 0 1px #ffffff20,0 0 30px #b8f8ff08;backdrop-filter:blur(24px) saturate(145%);-webkit-backdrop-filter:blur(24px) saturate(145%);border-radius:24px}
+.hero{padding:25px 20px;margin-bottom:14px;animation:up .55s ease}.badge{display:inline-flex;padding:7px 11px;border-radius:99px;background:#00d9a61c;border:1px solid #00d9a64a;color:#72ffd9;font-size:12px;font-weight:700}
+.team-title{display:flex;align-items:center;gap:11px;margin:0 0 14px;color:#f2fbf9;font-size:15px;font-weight:800;letter-spacing:1px}.team-title span{padding:7px 10px;border-left:2px solid #66e2c1;background:linear-gradient(90deg,#66e2c11c,transparent);text-shadow:0 1px 12px #b8fff466}.team-title i{display:block;width:min(92px,18vw);height:1px;background:linear-gradient(90deg,#f3ca7b,#f3ca7b00)}
 h1{font-size:clamp(27px,8vw,42px);line-height:1.03;margin:13px 0 8px;letter-spacing:-1.5px}.hero p{margin:0;color:#a8bac7;line-height:1.5}.solar{font-size:46px;float:right;filter:drop-shadow(0 0 18px #ffe06b)}
 .section{padding:17px;margin-bottom:14px;animation:up .6s ease}.section h2{font-size:17px;margin:0 0 12px}.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 label{display:block;color:#9fb2bf;font-size:12px;font-weight:600}input{margin-top:6px;width:100%;padding:12px 11px;border-radius:13px;border:1px solid #ffffff1c;background:#071521;color:white;outline:none;font-size:15px}input:focus{border-color:#00d9a6;box-shadow:0 0 0 3px #00d9a615}
@@ -19,25 +22,15 @@ label{display:block;color:#9fb2bf;font-size:12px;font-weight:600}input{margin-to
 .small{font-size:10px;color:#718594}.btn{border:0;border-radius:13px;padding:12px 14px;font-weight:800;cursor:pointer;color:#041016;transition:.2s}.btn:hover{transform:translateY(-2px)}.add{background:#65f6cf;margin-top:12px;width:100%}.remove{background:#ff61701a;color:#ff8994;border:1px solid #ff61702b;height:43px}
 .results{display:grid;grid-template-columns:1fr 1fr;gap:9px}.metric{padding:14px;border-radius:17px;background:#ffffff09;border:1px solid #ffffff12}.metric span{display:block;color:#91a7b5;font-size:11px}.metric b{display:block;margin-top:5px;font-size:23px}.recommend{margin-top:11px;padding:16px;border-radius:18px;background:linear-gradient(135deg,#00d9a61b,#1684ff15);border:1px solid #00d9a638}.recommend strong{color:#74ffda}.footer{text-align:center;color:#8296a3;font-size:12px;padding:8px}.footer b{color:#d7e9f3}
 .save-row{display:grid;grid-template-columns:1fr auto;gap:9px;align-items:end}.save-button{background:#65f6cf;white-space:nowrap}.saved-list{display:grid;gap:8px;margin-top:14px}.saved-item{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:12px;border:1px solid #ffffff12;border-radius:14px;background:#ffffff08}.saved-info{min-width:0}.saved-info strong,.saved-info span{display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.saved-info span{margin-top:4px;color:#91a7b5;font-size:11px}.saved-actions{display:flex;gap:6px;flex-shrink:0}.saved-actions .btn{padding:9px 11px}.load-button{background:#1684ff24;color:#a9ceff;border:1px solid #1684ff40}.empty-saved,.save-status{color:#91a7b5;font-size:12px;margin:10px 0 0}.save-status{min-height:16px;color:#74ffda}
-@media(max-width:560px){.grid,.results{grid-template-columns:1fr 1fr}.appliance{grid-template-columns:1fr 1fr 1fr}.appliance .name{grid-column:1/-1}.appliance .remove{grid-column:3}.brand-logo{width:min(205px,100%)}.hero{padding:22px 17px}}
+@media(max-width:560px){.grid,.results{grid-template-columns:1fr 1fr}.appliance{grid-template-columns:1fr 1fr 1fr}.appliance .name{grid-column:1/-1}.appliance .remove{grid-column:3}.hero{padding:22px 17px}}
 @media(max-width:420px){.save-row{grid-template-columns:1fr}.save-button{width:100%}.saved-item{align-items:flex-start;flex-direction:column}.saved-actions{width:100%}.saved-actions .btn{flex:1}}
 </style>
 </head>
 <body>
+<canvas id="solarScene" class="scene-canvas" aria-hidden="true"></canvas>
 <div class="wrap">
 <header class="glass hero">
-  <svg class="brand-logo" viewBox="0 0 254 112" role="img" aria-label="Hiru Jaya Green Energy, Pure Power">
-    <rect width="254" height="112" fill="#fff"/>
-    <rect x="0" y="16" width="35" height="78" fill="#249b43"/>
-    <rect x="40" y="16" width="35" height="78" fill="#55b947"/>
-    <path d="M16 31h19v16H0V31h8V16h8zm0 32h19v15H16v16H0V63zM40 47h19V31h16v32H40zm0 16h35v31H59V78H40z" fill="#fff"/>
-    <g fill="#292c83" font-family="Arial,Helvetica,sans-serif" font-weight="700">
-      <text x="91" y="39" font-size="31" textLength="153" lengthAdjust="spacingAndGlyphs">HIRUJAYA</text>
-      <text x="91" y="65" font-size="28">GREEN</text>
-      <text x="91" y="91" font-size="28">ENERGY</text>
-    </g>
-    <text x="91" y="108" fill="#008dde" font-family="Arial,Helvetica,sans-serif" font-size="14">PURE POWER</text>
-  </svg>
+  <div class="team-title"><span>HIRUJAYA KANTHALE TEAM</span><i aria-hidden="true"></i></div>
   <span class="badge">OFF-GRID SOLAR CALCULATOR</span>
   <h1>Power your home.<br>Know your solar size.</h1>
   <p>Add your home appliances and daily usage hours. Get an instant estimated solar, battery and inverter requirement.</p>
@@ -158,6 +151,107 @@ function calculate(){
 presets.forEach(add);
 document.getElementById("saveButton").addEventListener("click",saveEstimate);
 renderSavedEstimates();
+</script>
+<script type="module">
+const canvas=document.getElementById("solarScene");
+try{
+ const THREE=await import("https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.module.js");
+ const renderer=new THREE.WebGLRenderer({canvas,alpha:true,antialias:true,powerPreference:"low-power"});
+ renderer.setPixelRatio(Math.min(window.devicePixelRatio||1,1.5));
+ renderer.setSize(window.innerWidth,window.innerHeight,false);
+ renderer.outputColorSpace=THREE.SRGBColorSpace;
+ renderer.toneMapping=THREE.ACESFilmicToneMapping;
+ renderer.toneMappingExposure=1.15;
+
+ const scene=new THREE.Scene();
+ const camera=new THREE.PerspectiveCamera(43,window.innerWidth/window.innerHeight,.1,100);
+ camera.position.set(0,0,22);
+ scene.add(new THREE.HemisphereLight(0xccefff,0x07131b,1.45));
+ const sunLight=new THREE.PointLight(0xffce7b,28,70,2);
+ scene.add(sunLight);
+ const fillLight=new THREE.DirectionalLight(0x68d8ef,2.2);
+ fillLight.position.set(-5,4,8);scene.add(fillLight);
+
+ const glowCanvas=document.createElement("canvas");glowCanvas.width=glowCanvas.height=256;
+ const glowContext=glowCanvas.getContext("2d");
+ const glowGradient=glowContext.createRadialGradient(128,128,8,128,128,128);
+ glowGradient.addColorStop(0,"rgba(255,239,190,.95)");glowGradient.addColorStop(.18,"rgba(255,192,91,.54)");glowGradient.addColorStop(1,"rgba(255,156,62,0)");
+ glowContext.fillStyle=glowGradient;glowContext.fillRect(0,0,256,256);
+ const glowTexture=new THREE.CanvasTexture(glowCanvas);
+ const sunGlow=new THREE.Sprite(new THREE.SpriteMaterial({map:glowTexture,color:0xffd184,transparent:true,opacity:.8,blending:THREE.AdditiveBlending,depthWrite:false}));
+ scene.add(sunGlow);
+ const sun=new THREE.Mesh(new THREE.SphereGeometry(1,40,32),new THREE.MeshBasicMaterial({color:0xffd584}));
+ scene.add(sun);
+
+ const panel=new THREE.Group();scene.add(panel);
+ const panelWidth=24,panelHeight=13;
+ const panelBase=new THREE.Mesh(new THREE.PlaneGeometry(panelWidth,panelHeight),new THREE.MeshPhysicalMaterial({color:0x082332,metalness:.62,roughness:.24,clearcoat:.8,clearcoatRoughness:.18}));
+ panel.add(panelBase);
+ const panelMaterial=new THREE.MeshPhysicalMaterial({color:0x123d59,metalness:.58,roughness:.2,clearcoat:.9,clearcoatRoughness:.12,emissive:0x061621,emissiveIntensity:.5});
+ const columns=8,rows=5,gap=.075,cellWidth=(panelWidth-gap*(columns+1))/columns,cellHeight=(panelHeight-gap*(rows+1))/rows;
+ for(let row=0;row<rows;row++)for(let column=0;column<columns;column++){
+  const cell=new THREE.Mesh(new THREE.PlaneGeometry(cellWidth,cellHeight),panelMaterial);
+  cell.position.set(-panelWidth/2+gap+cellWidth/2+column*(cellWidth+gap),-panelHeight/2+gap+cellHeight/2+row*(cellHeight+gap),.025);
+  panel.add(cell);
+ }
+ const frameMaterial=new THREE.MeshStandardMaterial({color:0x4e8794,metalness:.72,roughness:.27});
+ for(const [x,y,width,height] of [[0,panelHeight/2,panelWidth,.055],[0,-panelHeight/2,panelWidth,.055],[-panelWidth/2,0,.055,panelHeight],[panelWidth/2,0,.055,panelHeight]]){
+  const rail=new THREE.Mesh(new THREE.BoxGeometry(width,height,.08),frameMaterial);rail.position.set(x,y,.045);panel.add(rail);
+ }
+
+ const dropProfile=[new THREE.Vector2(0,-.62),new THREE.Vector2(.18,-.6),new THREE.Vector2(.34,-.48),new THREE.Vector2(.43,-.28),new THREE.Vector2(.41,-.06),new THREE.Vector2(.31,.17),new THREE.Vector2(.2,.39),new THREE.Vector2(.09,.57),new THREE.Vector2(0,.68)];
+ const dropGeometry=new THREE.LatheGeometry(dropProfile,28);
+ const waterMaterial=new THREE.MeshPhysicalMaterial({color:0xd8f8ff,metalness:0,roughness:.045,transmission:.82,thickness:.75,ior:1.333,clearcoat:1,clearcoatRoughness:.025,transparent:true,opacity:.83,depthWrite:false});
+ const highlightMaterial=new THREE.MeshBasicMaterial({color:0xffffff,transparent:true,opacity:.76,depthWrite:false});
+ const droplets=[];
+ const dropCount=window.innerWidth<560?22:38;
+ for(let index=0;index<dropCount;index++){
+  const drop=new THREE.Group();
+  const scale=.12+Math.random()*.19;
+  const body=new THREE.Mesh(dropGeometry,waterMaterial);body.scale.set(scale,scale*1.08,scale*.72);drop.add(body);
+  const shine=new THREE.Mesh(new THREE.SphereGeometry(1,12,10),highlightMaterial);shine.scale.set(scale*.11,scale*.2,scale*.045);shine.position.set(-scale*.2,scale*.28,scale*.55);drop.add(shine);
+  drop.userData={speed:.28+Math.random()*.5,phase:Math.random()*Math.PI*2,sway:.12+Math.random()*.2,scale};
+  scene.add(drop);droplets.push(drop);
+ }
+
+ let viewWidth=0,viewHeight=0,dropWidth=0,dropHeight=0;
+ function layout(){
+  const width=window.innerWidth,height=window.innerHeight;
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio||1,1.5));renderer.setSize(width,height,false);
+  camera.aspect=width/height;camera.updateProjectionMatrix();
+  viewHeight=2*Math.tan(THREE.MathUtils.degToRad(camera.fov/2))*camera.position.z;viewWidth=viewHeight*camera.aspect;
+  const panelScale=Math.min(viewWidth/22,1.12);
+  panel.scale.setScalar(panelScale);panel.position.set(0,-viewHeight*.25,-4.5);panel.rotation.set(-.24,0,-.055);
+  sun.position.set(viewWidth*.3,viewHeight*.25,-5.5);sunLight.position.copy(sun.position);
+  const glowSize=Math.min(viewWidth*.3,9);sunGlow.position.copy(sun.position);sunGlow.scale.set(glowSize,glowSize,1);
+  const dropDistance=camera.position.z-3.2;dropHeight=2*Math.tan(THREE.MathUtils.degToRad(camera.fov/2))*dropDistance;dropWidth=dropHeight*camera.aspect;
+  droplets.forEach(drop=>{drop.position.x=(Math.random()-.5)*dropWidth*.92;drop.position.y=(Math.random()-.5)*dropHeight*.88;drop.position.z=3.2;});
+ }
+ layout();document.body.classList.add("scene-ready");
+ const reduceMotion=window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+ const pointer={x:0,y:0};
+ window.addEventListener("pointermove",event=>{pointer.x=(event.clientX/window.innerWidth-.5)*2;pointer.y=(event.clientY/window.innerHeight-.5)*2;},{passive:true});
+ window.addEventListener("resize",layout,{passive:true});
+ let previous=0,frame=0;
+ function animate(now){
+  if(document.hidden)return;
+  const delta=Math.min((now-previous)/1000,.04);previous=now;
+  const time=now*.001;
+  camera.position.x+=(pointer.x*.22-camera.position.x)*.018;camera.position.y+=(-pointer.y*.15-camera.position.y)*.018;camera.lookAt(0,0,0);
+  panel.rotation.z=-.055+Math.sin(time*.16)*.012;
+  sun.scale.setScalar(1+Math.sin(time*.8)*.018);sunGlow.material.opacity=.72+Math.sin(time*.8)*.07;
+  for(const drop of droplets){
+   drop.position.y-=drop.userData.speed*delta;
+   drop.position.x+=Math.sin(time*.55+drop.userData.phase)*drop.userData.sway*delta;
+   drop.rotation.z=Math.sin(time*.4+drop.userData.phase)*.08;
+   if(drop.position.y < -dropHeight*.52){drop.position.y=dropHeight*.5+Math.random()*2;drop.position.x=(Math.random()-.5)*dropWidth*.9;}
+  }
+  renderer.render(scene,camera);frame=requestAnimationFrame(animate);
+ }
+ renderer.render(scene,camera);
+ if(!reduceMotion)frame=requestAnimationFrame(animate);
+ document.addEventListener("visibilitychange",()=>{if(document.hidden){cancelAnimationFrame(frame)}else if(!reduceMotion){previous=performance.now();frame=requestAnimationFrame(animate)}});
+}catch(error){canvas.hidden=true;console.warn("3D solar scene unavailable; showing CSS fallback.",error);}
 </script>
 </body>
 </html>
